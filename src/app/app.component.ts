@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  blackNum = 0
+  whiteNum = 0
+
   board = [
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,6 +25,7 @@ export class AppComponent implements OnInit {
   turn = 1
   
   ngOnInit() {
+    this.updateNumInfo()
   }
 
   getCellClass(cell: number) {
@@ -44,6 +48,8 @@ export class AppComponent implements OnInit {
     if (this.flip(i, j, this.turn)) {
       this.board[i][j] = this.turn
       this.turn = 3 - this.turn 
+
+      this.updateNumInfo()
     }
   }
 
@@ -97,5 +103,14 @@ export class AppComponent implements OnInit {
     if (this.board[y][x] == 3 - myColor) {
       return this.checkFlip(y + i, x + j, i, j, myColor)
     }
+  }
+
+  updateNumInfo() {
+    this.whiteNum = [].concat(...this.board)
+      .filter(x => x === 1)
+      .length
+    this.blackNum = [].concat(...this.board)
+      .filter(x => x === 2)
+      .length
   }
 }

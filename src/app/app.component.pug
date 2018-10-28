@@ -1,6 +1,8 @@
 .info
   .turn-info
     span CURRENT TURN IS {{turn == 1 ? "WHITE" : "BLACK"}}
+  .war-situation
+    | WHITE: {{whiteNum}} vs BLACK {{blackNum}}
 
 .board
   .row(*ngFor="let row of board, index as i")
