@@ -50,6 +50,8 @@ export class AppComponent implements OnInit {
       this.turn = 3 - this.turn 
 
       this.updateNumInfo()
+
+      this.checkGameOver()
     }
   }
 
@@ -112,5 +114,16 @@ export class AppComponent implements OnInit {
     this.blackNum = [].concat(...this.board)
       .filter(x => x === 2)
       .length
+  }
+
+  checkGameOver() {
+    let emptyCellNum = [].concat(...this.board)
+      .filter(x => x == 0)
+      .length
+
+    if (emptyCellNum == 0) {
+      let winColor = this.whiteNum > this.blackNum ? "WHITE" : "BLACK"
+      alert(`${winColor} is WIN !!`)
+    }
   }
 }
