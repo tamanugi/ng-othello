@@ -19,3 +19,23 @@
       border-width 1px
       border-color black
       background-color green
+
+    .cell.white
+      &:before
+        content ""
+        position relative
+        background-color white
+        border-radius 50%
+        height 64px
+        width 64px
+        position absolute
+
+    .cell.black
+      &:before
+        content ""
+        position relative
+        background-color black
+        border-radius 50%
+        height 64px
+        width 64px
+        position absolute
