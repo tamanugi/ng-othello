@@ -17,6 +17,9 @@ export class AppComponent implements OnInit {
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0]
   ]
+
+  // white: 1, black: 2
+  turn = 1
   
   ngOnInit() {
   }
@@ -29,5 +32,17 @@ export class AppComponent implements OnInit {
     }
 
     return cellClass[cell]
+  }
+
+  onClickCell(i: number, j: number) {
+    let currCell = this.board[i][j]  
+
+    if (currCell !== 0) {
+      return
+    }
+
+    this.board[i][j] = this.turn
+
+    this.turn = 3 - this.turn 
   }
 }

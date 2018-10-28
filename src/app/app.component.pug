@@ -1,3 +1,5 @@
 .board
-  .row(*ngFor="let row of board")
-    .cell(*ngFor="let cell of row", [ngClass]="getCellClass(cell)")
+  .row(*ngFor="let row of board, index as i")
+    .cell(*ngFor="let cell of row, index as j",
+          [ngClass]="getCellClass(cell)",
+          (click)="onClickCell(i, j)")
