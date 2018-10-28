@@ -1,3 +1,7 @@
+.info
+  .turn-info
+    span CURRENT TURN IS {{turn == 1 ? "WHITE" : "BLACK"}}
+
 .board
   .row(*ngFor="let row of board, index as i")
     .cell(*ngFor="let cell of row, index as j",
